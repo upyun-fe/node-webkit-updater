@@ -82,7 +82,7 @@
           pkg['content-length'] = response.headers['content-length'];
         }
     });
-    var filename = path.basename(url),
+    var filename = path.basename(url.replace(/\?.*/,'')),
         destinationPath = path.join(os.tmpdir(), filename);
     // download the package to template folder
     fs.unlink(path.join(os.tmpdir(), filename), function(){
